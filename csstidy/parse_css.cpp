@@ -80,6 +80,10 @@ void csstidy::parse_css(string css_input)
 				{
 					cur_at += unicode(css_input,i);
 				}
+				else if(css_input[i] == '(' || css_input[i] == ')' || css_input[i] == ':')
+				{
+					cur_at += css_input[i];
+				}
 			}
 			else
 			{
@@ -449,7 +453,7 @@ void csstidy::parse_css(string css_input)
 					cur_selector += cur_string;
 				}
 			}
-			
+
 			break;
 
 			/* Case in-comment */
