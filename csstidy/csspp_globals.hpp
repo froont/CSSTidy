@@ -15,10 +15,10 @@
  * along with CSSTidy; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
- 
+
 #define CSSTIDY_VERSION "1.3"
 #include <cstdlib>
-#include <string> 
+#include <string.h>
 #include <iterator>
 #include <vector>
 #include <math.h>
