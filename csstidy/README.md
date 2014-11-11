@@ -1,3 +1,8 @@
+Install SCons before installing this.
+
+This installs through pip:
+pip install [github tarball link]
+
 CSSTidy is an opensource CSS parser and optimiser. It is available as
 executable file (available for Windows, Linux and OSX) which can be
 controlled per command line and as PHP script (both with almost the same

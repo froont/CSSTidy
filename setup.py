@@ -1,20 +1,32 @@
 #!/usr/bin/env python
-""" CSSTidy, tidies up your css """
+""" CSSTidy, tidies up your css
+
+!!! WARNING !!!
+SCons must be installed before running this!
+Unfortunately SCons cannot be added to pip requirements at this time
+because of SCons pip installation error!
+
+TODO: when SCons installation error is solved, please add SCons to
+      install_requires list below.
+"""
 
 from setuptools import setup
 from setuptools.command.install import install as _install
-import subprocess
+import os, subprocess
 
 
 class install(_install):
     """ Extends default installation class to run script after install """
 
     def run(self):
+        install_dir = os.path.join(os.getcwd(), self.config_vars['dist_name'])
+        subprocess.call(['scons', '-C' + install_dir])
+
         _install.run(self)
-        subprocess.call(['scons', '-C ./csstidy'])
+
 
 setup(name='csstidy',
-      version='1.4',
+      version='1.1',
       description='Package to tidy up css and optimize the selectors',
       url='https://github.com/froont/CSSTidy',
       author='Florian Schmitz, Thierry Charbonnel, Will Mitchell',
@@ -22,22 +34,23 @@ setup(name='csstidy',
       license='GPL',
       # scons commented out for now, because it of errors in pip install
       # install_requires=['scons'],
-      package_data={'':[
-        'source/*.cpp',
-        'source/*.hpp',
-        'source/*.h',
-        'source/*.rc',
-        'AUTHORS',
-        'BUGS',
-        'ChangeLog',
-        'COPYING',
-        'INSTALL',
-        'NEWS',
-        'REDME',
-        'SConstruct',
-        'TODO',
-        'csstidy/*'
-      ]},
+      package_data={'':['source/*.cpp',
+                        'source/*.hpp',
+                        'source/*.h',
+                        'source/*.rc',
+                        'source/SConscript',
+                        'AUTHORS',
+                        'BUGS',
+                        'ChangeLog',
+                        'COPYING',
+                        'INSTALL',
+                        'NEWS',
+                        'REDME',
+                        'SConstruct',
+                        'TODO',
+                        'csstidy/*.o',
+                        'csstidy/csstidy',
+                        '.sconsign.dblite']},
       packages=['csstidy'],
       cmdclass={'install': install},
-      zip_safe=True)
+      zip_safe=False)
