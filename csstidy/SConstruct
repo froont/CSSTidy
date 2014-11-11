@@ -24,6 +24,6 @@ Export('env', 'mymode', 'debugcflags', 'releasecflags')
 env.SConsignFile()
 
 #specify the sconscript for CSSTidy
-project = 'csstidy'
+project = 'source'
 SConscript(project + '/SConscript', exports=['project'])
 

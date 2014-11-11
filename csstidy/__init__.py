@@ -12,7 +12,7 @@ def _get_executable_name():
     """ Returns the full path to CSSTidy executable """
     filename = 'csstidy'
     this_dir = os.path.realpath(os.path.dirname(__file__))
-    return os.path.join(this_dir, filename)
+    return os.path.join(this_dir, filename, filename)
 
 
 def csstidy(soruce_file, output_file=None, **args):
