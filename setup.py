@@ -26,7 +26,7 @@ class install(_install):
 
 
 setup(name='csstidy',
-      version='1.1',
+      version='1.4',
       description='Package to tidy up css and optimize the selectors',
       url='https://github.com/froont/CSSTidy',
       author='Florian Schmitz, Thierry Charbonnel, Will Mitchell',

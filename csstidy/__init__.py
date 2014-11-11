@@ -35,7 +35,7 @@ def csstidy(soruce_file, output_file=None, **args):
         'remove_last_;': [False, True],
         'silent': [True, False],
         'sort_properties': [True, False],
-        'sort_selectors': [True, False],
+        'sort_selectors': [False, True],
         'timestamp': [False, True],
         'merge_selectors': [2, 1, 0],
         'case_properties': [0, 1, 2],
